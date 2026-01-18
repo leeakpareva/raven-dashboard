@@ -292,11 +292,12 @@ vulnerability_data = {
 df_vuln = pd.DataFrame(vulnerability_data)
 df_vuln = df_vuln.sort_values('Frequency (%)', ascending=True)
 
-fig_vuln = px.barh(df_vuln, x='Frequency (%)', y='Vulnerability Type',
-                   title='Most Common Security Vulnerabilities in AI-Generated Code',
-                   text='Frequency (%)',
-                   color='Average Cost ($M)',
-                   color_continuous_scale='Reds')
+fig_vuln = px.bar(df_vuln, x='Frequency (%)', y='Vulnerability Type',
+                  orientation='h',
+                  title='Most Common Security Vulnerabilities in AI-Generated Code',
+                  text='Frequency (%)',
+                  color='Average Cost ($M)',
+                  color_continuous_scale='Reds')
 fig_vuln.update_traces(texttemplate='%{text}%', textposition='outside')
 fig_vuln.update_layout(height=400)
 st.plotly_chart(fig_vuln, use_container_width=True)
