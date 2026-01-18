@@ -3,13 +3,6 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
-# Set page config
-st.set_page_config(
-    page_title="The Silent Crisis: AI & Software Foundations",
-    page_icon="🚨",
-    layout="wide"
-)
-
 # Custom CSS for "Story Style"
 st.markdown("""
     <style>
@@ -29,6 +22,13 @@ st.markdown("""
         font-style: italic;
         color: #31333F;
     }
+    .author-credit {
+        text-align: center;
+        font-size: 18px;
+        color: #666;
+        margin-top: -10px;
+        margin-bottom: 20px;
+    }
     h1 {
         color: #0E1117;
         font-family: 'Helvetica Neue', sans-serif;
@@ -43,14 +43,15 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Title Section
+# Title Section with Author Credit
 st.title("🚨 The Silent Crisis")
 st.markdown("# When AI Eats the Foundations of Software Development")
+st.markdown('<p class="author-credit">By Lee Akpareva MBA, MA</p>', unsafe_allow_html=True)
 st.markdown("---")
 
 # Sidebar for Navigation
 with st.sidebar:
-    st.header("Navigation")
+    st.header("Page Navigation")
     st.markdown("""
     - [The Automation Avalanche](#the-automation-avalanche)
     - [The Fundamentals Crisis](#the-fundamentals-crisis)
@@ -66,9 +67,9 @@ with st.sidebar:
 # -----------------------------------------------------------------------------
 st.header("The Automation Avalanche")
 st.markdown("""
-In 2023, GitHub Copilot achieved a remarkable milestone: **1 million developers** were using AI coding assistants daily. 
-By 2024, that number exploded to over **4 million**. 
-Stack Overflow's 2024 Developer Survey revealed that **83%** of professional developers now use AI coding tools regularly. 
+In 2023, GitHub Copilot achieved a remarkable milestone: **1 million developers** were using AI coding assistants daily.
+By 2024, that number exploded to over **4 million**.
+Stack Overflow's 2024 Developer Survey revealed that **83%** of professional developers now use AI coding tools regularly.
 
 On the surface, this looks like progress. **Beneath the surface, it masks a growing catastrophe.**
 """)
@@ -81,7 +82,7 @@ with col1:
         'Year': ['2023', '2024'],
         'Users (Millions)': [1, 4]
     })
-    fig_adoption = px.line(df_adoption, x='Year', y='Users (Millions)', 
+    fig_adoption = px.line(df_adoption, x='Year', y='Users (Millions)',
                            title='GitHub Copilot Daily Users (Millions)',
                            markers=True, text='Users (Millions)')
     fig_adoption.update_traces(textposition="bottom right")
@@ -112,7 +113,7 @@ with col2:
 st.header("The Fundamentals Crisis")
 st.markdown("""
 ### The Data Doesn't Lie
-A 2023 study by the IEEE Computer Society found that **56%** of new developers struggle with basic algorithms and data structures. 
+A 2023 study by the IEEE Computer Society found that **56%** of new developers struggle with basic algorithms and data structures.
 The same survey revealed that **72%** of recent graduates rely heavily on AI tools for tasks they should master manually.
 """)
 
@@ -156,7 +157,7 @@ with col1:
     Technical debt in enterprise software reached **$2.7 trillion** globally in 2024, up 23% from 2023.
     **42%** of this debt stems from developers who don't understand fundamental concepts.
     """)
-    
+
     # Donut chart for Technical Debt Source
     labels = ['Due to Fundamental Gaps', 'Other Causes']
     values = [42, 58]
@@ -167,10 +168,10 @@ with col1:
 with col2:
     st.markdown("### The Cost of Poor Quality")
     st.markdown("""
-    Global software development costs exceeded **$2.1 trillion** in 2024. 
+    Global software development costs exceeded **$2.1 trillion** in 2024.
     Poor code quality costs enterprises **$1.5 trillion** annually.
     """)
-    
+
     # Bar chart comparing Total Cost vs Waste
     df_cost = pd.DataFrame({
         'Category': ['Total Dev Cost', 'Cost of Poor Quality'],
@@ -196,9 +197,9 @@ with tab1:
     st.error("Loss: $180 Million in Minutes")
     st.markdown("""
     A major U.S. bank deployed an AI-generated trading algorithm. When market volatility spiked, the system failed catastrophically.
-    
+
     **The Cause**: The AI code lacked basic error handling and didn't account for edge cases that any intermediate developer would catch.
-    
+
     > *"The code looked perfect on paper, but it crumbled under real-world conditions."* — Lead Investigator
     """)
 
@@ -207,7 +208,7 @@ with tab2:
     st.error("Exposure: 2.3 Million Patient Records")
     st.markdown("""
     A healthcare startup's AI-generated API endpoints contained a critical security vulnerability (SQL Injection).
-    
+
     **The Cause**: Developers didn't understand fundamental security concepts like input validation.
     """)
 
@@ -215,7 +216,7 @@ with tab3:
     st.subheader("The Startup Graveyard")
     st.error("Failure Rate: 92% in 2024")
     st.markdown("""
-    **34%** of failures cited "technical incompetence" as a primary factor. 
+    **34%** of failures cited "technical incompetence" as a primary factor.
     Many founders admitted they relied on AI tools to "get by", only to discover critical flaws in production.
     """)
 

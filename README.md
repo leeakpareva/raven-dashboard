@@ -1,6 +1,6 @@
-# RAVEN Dashboard - The Silent Crisis: AI & Software Foundations
+# RAVEN Dashboard - AI & Software Education Platform
 
-An interactive Streamlit dashboard exploring the impact of AI on software development fundamentals.
+An interactive multi-page Streamlit application featuring data-driven insights on AI's impact on software development and the RAVEN AI education platform.
 
 ## Overview
 
@@ -8,11 +8,19 @@ This educational dashboard visualizes the growing crisis in software development
 
 ## Features
 
+### 📊 Crisis Dashboard
 - **Interactive Data Visualizations** using Plotly
 - **Real-World Case Studies** of AI-related failures
 - **Economic Impact Analysis** of technical debt
 - **Skills Gap Metrics** from industry surveys
 - **The RAVEN Approach** - Educational AI methodology (WHAT/HOW/WHY)
+
+### 🚀 RAVEN Platform
+- **Investor Deck** - Complete 9-slide presentation
+- **Product Specifications** - Detailed technical overview
+- **360-Degree Learning Approach** - Educational methodology
+- **Market Focus** - Target audiences and applications
+- **Open-Source Innovation** - Accessibility and customization
 
 ## Key Topics Covered
 
@@ -42,7 +50,7 @@ cd raven-dashboard
 pip install -r requirements.txt
 
 # Run the app
-streamlit run dashboard.py
+streamlit run app.py
 ```
 
 ## Live Demo
