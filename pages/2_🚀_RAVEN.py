@@ -129,6 +129,15 @@ st.markdown("""
 
 st.markdown('<p class="author-credit">Designed & Developed by Lee Akpareva MBA, MA</p>', unsafe_allow_html=True)
 
+# Add RAVEN Terminal URL
+st.markdown("""
+<div style="text-align: center; margin: 20px 0;">
+    <a href="https://raventerminal.xyz/" target="_blank" style="color: #000; font-size: 18px; font-weight: 700; text-decoration: none; border: 2px solid #000; padding: 10px 20px; display: inline-block;">
+        Visit RAVEN Terminal →
+    </a>
+</div>
+""", unsafe_allow_html=True)
+
 st.markdown("---")
 
 # Introduction

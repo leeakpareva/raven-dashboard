@@ -150,6 +150,39 @@ To transform AI from a crutch into an enabler by:
 **Use the sidebar** to navigate to the Crisis Dashboard or RAVEN platform pages.
 """)
 
+# Technology Stack Section
+st.markdown("---")
+st.markdown("## Technology Stack")
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.markdown("""
+    <div class="feature-card">
+        <h4>Core Framework</h4>
+        <p><strong>Streamlit</strong> - Interactive web application framework</p>
+        <p><strong>Python 3.8+</strong> - Programming language</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col2:
+    st.markdown("""
+    <div class="feature-card">
+        <h4>Data Visualization</h4>
+        <p><strong>Plotly</strong> - Interactive charts and graphs</p>
+        <p><strong>Pandas</strong> - Data manipulation and analysis</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col3:
+    st.markdown("""
+    <div class="feature-card">
+        <h4>Deployment</h4>
+        <p><strong>GitHub</strong> - Version control</p>
+        <p><strong>Streamlit Cloud</strong> - Hosting platform</p>
+    </div>
+    """, unsafe_allow_html=True)
+
 # Footer
 st.markdown("---")
 st.markdown("""

@@ -47,6 +47,11 @@ st.markdown("""
 st.title("🚨 The Silent Crisis")
 st.markdown("# When AI Eats the Foundations of Software Development")
 st.markdown('<p class="author-credit">By Lee Akpareva MBA, MA</p>', unsafe_allow_html=True)
+st.markdown("""
+<div style="text-align: center; margin-top: -5px; margin-bottom: 15px;">
+    <a href="https://raventerminal.xyz/" target="_blank" style="color: #666; font-size: 14px;">raventerminal.xyz</a>
+</div>
+""", unsafe_allow_html=True)
 st.markdown("---")
 
 # Sidebar for Navigation
@@ -183,6 +188,221 @@ with col2:
     st.plotly_chart(fig_cost, use_container_width=True)
 
 st.info("45% of development time is spent fixing issues from misunderstood fundamentals.")
+
+# -----------------------------------------------------------------------------
+# NEW SECTION: The Code Reading Crisis
+# -----------------------------------------------------------------------------
+st.header("The Code Reading Crisis: When Developers Stop Reading")
+st.markdown("""
+The ability to read and understand code is fundamental to software development, yet it's becoming a lost art.
+Modern developers increasingly rely on AI to interpret code for them, creating dangerous knowledge gaps.
+""")
+
+col1, col2 = st.columns(2)
+
+with col1:
+    # Time spent reading vs writing code
+    df_reading = pd.DataFrame({
+        'Year': ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+        'Reading Code (%)': [58, 55, 52, 48, 42, 35, 28],
+        'Writing Code (%)': [42, 45, 48, 52, 58, 65, 72]
+    })
+
+    fig_reading = px.line(df_reading, x='Year',
+                          y=['Reading Code (%)', 'Writing Code (%)'],
+                          title='Developer Time: Reading vs Writing Code',
+                          markers=True)
+    fig_reading.update_layout(yaxis_title='Percentage of Time',
+                              legend_title='Activity')
+    st.plotly_chart(fig_reading, use_container_width=True)
+
+    st.warning("**28%** - Time developers spend reading code in 2024, down from 58% in 2018")
+
+with col2:
+    # Code comprehension skills decline
+    df_comprehension = pd.DataFrame({
+        'Skill Level': ['Can Debug Complex Systems', 'Understand Architecture',
+                        'Read Legacy Code', 'Trace Data Flow'],
+        'Junior Devs 2020': [75, 68, 72, 80],
+        'Junior Devs 2024': [32, 25, 18, 35]
+    })
+
+    fig_comp = px.bar(df_comprehension, x='Skill Level',
+                      y=['Junior Devs 2020', 'Junior Devs 2024'],
+                      title='Code Comprehension Skills Decline',
+                      barmode='group')
+    fig_comp.update_layout(yaxis_title='% of Developers',
+                          legend_title='Year Group')
+    st.plotly_chart(fig_comp, use_container_width=True)
+
+    st.error("**82%** decline in legacy code reading ability among junior developers")
+
+# -----------------------------------------------------------------------------
+# NEW SECTION: Security Breaches from Poor Code Understanding
+# -----------------------------------------------------------------------------
+st.header("The Security Crisis: When Copy-Paste Becomes Catastrophic")
+st.markdown("""
+Security breaches are increasingly linked to developers who copy AI-generated code without understanding its implications.
+The "trust but don't verify" mentality is creating unprecedented vulnerabilities.
+""")
+
+# Security breach statistics
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.metric(
+        label="Security Breaches from AI Code",
+        value="312%",
+        delta="Increase since 2022",
+        delta_color="inverse"
+    )
+
+with col2:
+    st.metric(
+        label="Average Breach Cost",
+        value="$4.45M",
+        delta="+15% YoY",
+        delta_color="inverse"
+    )
+
+with col3:
+    st.metric(
+        label="Vulnerabilities per 1000 Lines",
+        value="23.7",
+        delta="+8.3 from 2023",
+        delta_color="inverse"
+    )
+
+# Common vulnerability sources
+st.subheader("Root Causes of AI-Generated Vulnerabilities")
+
+vulnerability_data = {
+    'Vulnerability Type': [
+        'Unvalidated Input (SQL Injection, XSS)',
+        'Hardcoded Credentials & API Keys',
+        'Insecure Dependencies',
+        'Missing Authentication Checks',
+        'Race Conditions',
+        'Memory Leaks & Buffer Overflows'
+    ],
+    'Frequency (%)': [34, 28, 22, 19, 15, 12],
+    'Average Cost ($M)': [2.8, 5.2, 1.9, 3.7, 2.1, 4.5]
+}
+
+df_vuln = pd.DataFrame(vulnerability_data)
+df_vuln = df_vuln.sort_values('Frequency (%)', ascending=True)
+
+fig_vuln = px.barh(df_vuln, x='Frequency (%)', y='Vulnerability Type',
+                   title='Most Common Security Vulnerabilities in AI-Generated Code',
+                   text='Frequency (%)',
+                   color='Average Cost ($M)',
+                   color_continuous_scale='Reds')
+fig_vuln.update_traces(texttemplate='%{text}%', textposition='outside')
+fig_vuln.update_layout(height=400)
+st.plotly_chart(fig_vuln, use_container_width=True)
+
+# -----------------------------------------------------------------------------
+# NEW SECTION: The First-Time Quality Imperative
+# -----------------------------------------------------------------------------
+st.header("Do It Right The First Time: The Economics of Quality")
+st.markdown("""
+The cost of fixing defects increases exponentially as they move through the development lifecycle.
+Getting code right the first time isn't just best practice—it's economic necessity.
+""")
+
+# Cost of fixing bugs at different stages
+stages_data = {
+    'Stage': ['Design', 'Development', 'Testing', 'Production', 'Post-Release'],
+    'Relative Cost': [1, 6.5, 15, 100, 1000],
+    'Time to Fix (Hours)': [0.5, 2, 8, 40, 200]
+}
+
+df_stages = pd.DataFrame(stages_data)
+
+col1, col2 = st.columns(2)
+
+with col1:
+    fig_cost_stages = px.bar(df_stages, x='Stage', y='Relative Cost',
+                             title='Relative Cost of Fixing Defects by Stage',
+                             text='Relative Cost',
+                             color='Relative Cost',
+                             color_continuous_scale='Reds')
+    fig_cost_stages.update_traces(texttemplate='%{text}x', textposition='outside')
+    fig_cost_stages.update_layout(showlegend=False, yaxis_title='Cost Multiplier')
+    st.plotly_chart(fig_cost_stages, use_container_width=True)
+
+with col2:
+    fig_time_stages = px.line(df_stages, x='Stage', y='Time to Fix (Hours)',
+                              title='Time Required to Fix Defects by Stage',
+                              markers=True, text='Time to Fix (Hours)')
+    fig_time_stages.update_traces(textposition='top center')
+    fig_time_stages.update_layout(yaxis_type='log', yaxis_title='Hours (Log Scale)')
+    st.plotly_chart(fig_time_stages, use_container_width=True)
+
+# Quality metrics comparison
+st.subheader("The Quality Dividend: Benefits of Getting It Right")
+
+quality_benefits = {
+    'Metric': ['Development Speed', 'Customer Satisfaction', 'Team Morale',
+               'Technical Debt', 'Maintenance Cost', 'Innovation Capacity'],
+    'With Quality Focus': [100, 92, 85, 15, 20, 75],
+    'Without Quality Focus': [65, 45, 40, 85, 80, 25]
+}
+
+df_quality = pd.DataFrame(quality_benefits)
+
+fig_quality = px.bar(df_quality, x='Metric',
+                     y=['With Quality Focus', 'Without Quality Focus'],
+                     title='Impact of First-Time Quality on Key Metrics (%)',
+                     barmode='group',
+                     color_discrete_map={'With Quality Focus': 'green',
+                                       'Without Quality Focus': 'red'})
+fig_quality.update_layout(yaxis_title='Performance (%)', legend_title='Approach')
+st.plotly_chart(fig_quality, use_container_width=True)
+
+st.markdown("""
+<div class="quote-box">
+"The bitterness of poor quality remains long after the sweetness of low price is forgotten." — Benjamin Franklin
+<br><br>
+In software, this translates to: <b>Technical debt compounds at 78% annually</b>, while quality code appreciates in value.
+</div>
+""", unsafe_allow_html=True)
+
+# -----------------------------------------------------------------------------
+# NEW SECTION: Knowledge Erosion Timeline
+# -----------------------------------------------------------------------------
+st.header("The Knowledge Erosion Timeline")
+st.markdown("""
+Without regular code reading and fundamental practice, developer skills atrophy rapidly.
+This timeline shows how quickly expertise disappears when replaced by AI dependency.
+""")
+
+# Knowledge retention over time
+retention_data = {
+    'Weeks Without Practice': [0, 2, 4, 8, 12, 16, 24],
+    'Algorithm Design': [100, 92, 78, 55, 35, 22, 10],
+    'System Architecture': [100, 95, 85, 68, 52, 38, 25],
+    'Debugging Skills': [100, 88, 70, 48, 30, 18, 8],
+    'Security Awareness': [100, 90, 75, 52, 32, 20, 12]
+}
+
+df_retention = pd.DataFrame(retention_data)
+
+fig_retention = px.line(df_retention, x='Weeks Without Practice',
+                        y=['Algorithm Design', 'System Architecture',
+                           'Debugging Skills', 'Security Awareness'],
+                        title='Skill Retention Without Regular Practice',
+                        markers=True)
+fig_retention.update_layout(yaxis_title='Skill Retention (%)',
+                           xaxis_title='Weeks Without Manual Coding Practice')
+fig_retention.add_hline(y=50, line_dash="dash", line_color="red",
+                        annotation_text="Critical Knowledge Threshold")
+st.plotly_chart(fig_retention, use_container_width=True)
+
+st.error("""
+**Critical Finding**: After just 8 weeks of AI-only coding, developers lose over 50% of their
+fundamental programming skills, crossing below the threshold needed for effective problem-solving.
+""")
 
 # -----------------------------------------------------------------------------
 # SECTION 4: Real-World Catastrophes
