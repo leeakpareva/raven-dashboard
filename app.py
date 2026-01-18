@@ -77,12 +77,6 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# RAVEN text - plain without border
-st.markdown("""
-<div class="logo-display">
-    <span style="color: #000; font-size: 56px; font-weight: 900; letter-spacing: 5px;">RAVEN</span>
-</div>
-""", unsafe_allow_html=True)
 
 # Welcome message
 st.markdown("""

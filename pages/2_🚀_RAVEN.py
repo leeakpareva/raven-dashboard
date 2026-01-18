@@ -89,13 +89,6 @@ st.markdown("""
 
 st.markdown('<p class="author-credit">Designed & Developed by Lee Akpareva MBA, MA</p>', unsafe_allow_html=True)
 
-# RAVEN text - plain without border
-st.markdown("""
-<div class="logo-container">
-    <span style="color: #000; font-size: 56px; font-weight: 900; letter-spacing: 5px;">RAVEN</span>
-</div>
-""", unsafe_allow_html=True)
-
 st.markdown("---")
 st.markdown("## Investor Deck")
 
