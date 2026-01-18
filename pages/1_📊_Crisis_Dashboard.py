@@ -82,16 +82,63 @@ On the surface, this looks like progress. **Beneath the surface, it masks a grow
 col1, col2 = st.columns(2)
 
 with col1:
-    # Line chart for Copilot Users
+    # Enhanced line chart for Copilot Users
     df_adoption = pd.DataFrame({
         'Year': ['2023', '2024'],
         'Users (Millions)': [1, 4]
     })
+
     fig_adoption = px.line(df_adoption, x='Year', y='Users (Millions)',
-                           title='GitHub Copilot Daily Users (Millions)',
-                           markers=True, text='Users (Millions)')
-    fig_adoption.update_traces(textposition="bottom right")
-    fig_adoption.update_layout(yaxis_range=[0, 5])
+                           title='GitHub Copilot Daily Users Growth',
+                           markers=True)
+
+    # Enhance visual appearance
+    fig_adoption.update_traces(
+        line=dict(color='#ff4b4b', width=4),
+        marker=dict(size=12, color='#ff4b4b'),
+        text=[f'{val}M' for val in df_adoption['Users (Millions)']],
+        textposition="top center",
+        textfont=dict(size=14, color='#000', family='Arial Black')
+    )
+
+    # Improve layout
+    fig_adoption.update_layout(
+        yaxis_range=[0, 5],
+        yaxis=dict(
+            title='Daily Active Users (Millions)',
+            titlefont=dict(size=14, color='#000'),
+            tickfont=dict(size=12, color='#000'),
+            gridcolor='#e0e0e0'
+        ),
+        xaxis=dict(
+            title='Year',
+            titlefont=dict(size=14, color='#000'),
+            tickfont=dict(size=12, color='#000')
+        ),
+        title=dict(
+            font=dict(size=16, color='#000', family='Arial Black'),
+            x=0.5
+        ),
+        plot_bgcolor='white',
+        paper_bgcolor='white',
+        showlegend=False
+    )
+
+    # Add annotation for growth rate
+    fig_adoption.add_annotation(
+        x=1.5, y=2.5,
+        text="300% Growth<br>in 1 Year",
+        showarrow=True,
+        arrowhead=2,
+        arrowsize=1,
+        arrowwidth=2,
+        arrowcolor="#ff4b4b",
+        font=dict(size=12, color="#ff4b4b", family='Arial Bold'),
+        bgcolor="rgba(255,255,255,0.8)",
+        bordercolor="#ff4b4b",
+        borderwidth=1
+    )
+
     st.plotly_chart(fig_adoption, use_container_width=True)
 
 with col2:
