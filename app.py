@@ -7,60 +7,68 @@ st.set_page_config(
     layout="wide"
 )
 
-# Custom CSS for home page
+# Custom CSS for home page - Clean black and white design
 st.markdown("""
     <style>
     .main-header {
         text-align: center;
-        padding: 40px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        border-radius: 15px;
-        margin-bottom: 30px;
+        padding: 40px 20px;
+        border-bottom: 3px solid #000;
+        margin-bottom: 40px;
     }
     .main-title {
-        color: white;
-        font-size: 56px;
-        font-weight: bold;
+        color: #000;
+        font-size: 48px;
+        font-weight: 900;
         margin: 0;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        letter-spacing: 2px;
+        font-family: 'Helvetica Neue', Arial, sans-serif;
     }
     .main-subtitle {
-        color: #f0f0f0;
-        font-size: 24px;
-        margin-top: 15px;
+        color: #333;
+        font-size: 20px;
+        margin-top: 10px;
+        font-weight: 300;
     }
     .author-credit {
-        color: #e0e0e0;
-        font-size: 18px;
-        margin-top: 20px;
+        color: #000;
+        font-size: 16px;
+        margin-top: 15px;
+        font-weight: 500;
     }
     .feature-card {
         background: white;
         padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        border: 2px solid #000;
         height: 100%;
-        transition: transform 0.3s;
+        transition: all 0.2s;
     }
     .feature-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        background: #f9f9f9;
     }
     .nav-instruction {
-        background: #f8f9fa;
-        padding: 20px;
-        border-radius: 10px;
-        border-left: 5px solid #667eea;
-        margin: 20px 0;
+        background: white;
+        padding: 25px;
+        border: 2px solid #000;
+        margin: 30px 0;
     }
     .logo-display {
         text-align: center;
-        margin: 30px 0;
+        margin: 40px 0;
+    }
+    h2 {
+        color: #000;
+        font-weight: 700;
+        margin-top: 30px;
+    }
+    h3 {
+        color: #000;
+        font-weight: 600;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# Main header with gradient background
+# Main header - clean black and white
 st.markdown("""
 <div class="main-header">
     <h1 class="main-title">RAVEN DASHBOARD</h1>
@@ -69,14 +77,13 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# RAVEN Logo Display (styled placeholder)
+# RAVEN Logo Display - minimalist black and white
 st.markdown("""
 <div class="logo-display">
-    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                width: 250px; height: 100px; margin: 0 auto; border-radius: 15px;
-                display: flex; align-items: center; justify-content: center;
-                box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);">
-        <span style="color: white; font-size: 56px; font-weight: bold; letter-spacing: 3px;">RAVEN</span>
+    <div style="background: #000;
+                width: 200px; height: 80px; margin: 0 auto;
+                display: flex; align-items: center; justify-content: center;">
+        <span style="color: white; font-size: 42px; font-weight: 900; letter-spacing: 4px;">RAVEN</span>
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -94,11 +101,11 @@ This platform combines two critical perspectives on the future of technology:
 # Navigation instruction
 st.markdown("""
 <div class="nav-instruction">
-    <h3>📍 Navigation</h3>
+    <h3>Navigation</h3>
     <p>Use the <strong>sidebar menu</strong> on the left to explore:</p>
     <ul>
-        <li><strong>📊 Crisis Dashboard</strong> - Explore the data and impact of AI on software development</li>
-        <li><strong>🚀 RAVEN</strong> - Learn about the AI education platform and investment opportunity</li>
+        <li><strong>Crisis Dashboard</strong> - Explore the data and impact of AI on software development</li>
+        <li><strong>RAVEN</strong> - Learn about the AI education platform and investment opportunity</li>
     </ul>
 </div>
 """, unsafe_allow_html=True)
@@ -112,7 +119,7 @@ col1, col2 = st.columns(2)
 with col1:
     st.markdown("""
     <div class="feature-card">
-        <h3>📊 Crisis Dashboard</h3>
+        <h3>Crisis Dashboard</h3>
         <p><strong>Data-Driven Insights</strong></p>
         <ul>
             <li>Real-time statistics on AI adoption</li>
@@ -127,7 +134,7 @@ with col1:
 with col2:
     st.markdown("""
     <div class="feature-card">
-        <h3>🚀 RAVEN Platform</h3>
+        <h3>RAVEN Platform</h3>
         <p><strong>AI Education Revolution</strong></p>
         <ul>
             <li>Open-source AI device</li>
@@ -142,7 +149,7 @@ with col2:
 # Call to action
 st.markdown("---")
 st.markdown("""
-## 🎯 Our Mission
+## Our Mission
 
 To transform AI from a crutch into an enabler by:
 - **Educating** developers on fundamentals
@@ -150,7 +157,7 @@ To transform AI from a crutch into an enabler by:
 - **Building** a future where technology enhances rather than replaces understanding
 
 ### Start Exploring
-👈 **Use the sidebar** to navigate to the Crisis Dashboard or RAVEN platform pages.
+**Use the sidebar** to navigate to the Crisis Dashboard or RAVEN platform pages.
 """)
 
 # Footer
