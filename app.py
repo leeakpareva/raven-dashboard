@@ -77,14 +77,10 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# RAVEN Logo Display - minimalist black and white
+# RAVEN text - plain without border
 st.markdown("""
 <div class="logo-display">
-    <div style="background: #000;
-                width: 200px; height: 80px; margin: 0 auto;
-                display: flex; align-items: center; justify-content: center;">
-        <span style="color: white; font-size: 42px; font-weight: 900; letter-spacing: 4px;">RAVEN</span>
-    </div>
+    <span style="color: #000; font-size: 56px; font-weight: 900; letter-spacing: 5px;">RAVEN</span>
 </div>
 """, unsafe_allow_html=True)
 
