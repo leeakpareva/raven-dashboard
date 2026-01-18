@@ -104,21 +104,13 @@ with col1:
     # Improve layout
     fig_adoption.update_layout(
         yaxis_range=[0, 5],
-        yaxis=dict(
-            title='Daily Active Users (Millions)',
-            titlefont=dict(size=14, color='#000'),
-            tickfont=dict(size=12, color='#000'),
-            gridcolor='#e0e0e0'
-        ),
-        xaxis=dict(
-            title='Year',
-            titlefont=dict(size=14, color='#000'),
-            tickfont=dict(size=12, color='#000')
-        ),
-        title=dict(
-            font=dict(size=16, color='#000', family='Arial Black'),
-            x=0.5
-        ),
+        yaxis_title='Daily Active Users (Millions)',
+        xaxis_title='Year',
+        title={
+            'text': 'GitHub Copilot Daily Users Growth',
+            'x': 0.5,
+            'font': {'size': 16, 'color': '#000'}
+        },
         plot_bgcolor='white',
         paper_bgcolor='white',
         showlegend=False
